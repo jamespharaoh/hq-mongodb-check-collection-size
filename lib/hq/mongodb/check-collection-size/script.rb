@@ -168,9 +168,10 @@ class Script < Tools::CheckScript
 		# connect
 
 		mongo =
-			Mongo::Connection.new \
+			Mongo::MongoClient.new \
 				@opts[:hostname],
-				@opts[:port]
+				@opts[:port],
+				:slave_ok => true
 
 		# stats to collect
 
@@ -189,9 +190,10 @@ class Script < Tools::CheckScript
 		@thread_pool.init_hook do
 
 			Thread.current[:mongo] =
-				Mongo::Connection.new \
+				Mongo::MongoClient.new \
 					@opts[:hostname],
-					@opts[:port]
+					@opts[:port],
+					:slave_ok => true
 
 		end
 
