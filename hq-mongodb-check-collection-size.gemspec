@@ -48,6 +48,7 @@ Gem::Specification.new do
 	spec.add_development_dependency "simplecov", ">= 0.7.1"
 
 	spec.files = Dir[
+		"LICENCE",
 		"lib/**/*.rb",
 	]
 
