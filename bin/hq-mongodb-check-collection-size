@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require "hq/mongodb/check-collection-size/script"
+
+script = HQ::MongoDB::CheckCollectionSize::Script.new
+script.args = ARGV
+script.main
+exit script.status
