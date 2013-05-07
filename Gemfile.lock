@@ -26,6 +26,7 @@ GEM
     mongo (1.8.5)
       bson (~> 1.8.5)
     multi_json (1.7.3)
+    rake (10.0.4)
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
@@ -50,6 +51,7 @@ DEPENDENCIES
   cucumber (>= 1.3.1)
   hq-mongodb-check-collection-size!
   json (>= 1.7.7)
+  rake (>= 10.0.4)
   rspec (>= 2.13.0)
   rspec_junit_formatter (>= 0.1.6)
   simplecov (>= 0.7.1)

@@ -42,6 +42,7 @@ Gem::Specification.new do
 
 	spec.add_development_dependency "cucumber", ">= 1.3.1"
 	spec.add_development_dependency "json", ">= 1.7.7"
+	spec.add_development_dependency "rake", ">= 10.0.4"
 	spec.add_development_dependency "rspec", ">= 2.13.0"
 	spec.add_development_dependency "rspec_junit_formatter", ">= 0.1.6"
 	spec.add_development_dependency "simplecov", ">= 0.7.1"
