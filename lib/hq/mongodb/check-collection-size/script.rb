@@ -21,11 +21,6 @@ class Script < Tools::CheckScript
 		@opts, @args =
 			Tools::Getopt.process ARGV, [
 
-				{ :name => :timeout,
-					:default => 10,
-					:regex => /[0-9]+(\.[0-9]+)?/,
-					:convert => :to_f },
-
 				{ :name => :hostname,
 					:default => "localhost" },
 
