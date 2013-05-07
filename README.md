@@ -52,10 +52,16 @@ Same as above, except this only checks collections which are not sharded.
 
 ### Storage efficiency
 
-    --efficiency-warning RATIO
-    --efficiency-critical RATIO
+    --efficiency-warning PERCENT
+    --efficiency-critical PERCENT
     --efficiency-size SIZE
 
 This compares the data size of the collection to the total storage size
-allocated to it. The ratios should be between 0 and 1. Any collections with
-a storage size less than `--efficiencty-size` will not be checked.
+allocated to it.
+
+100% represents a collection which fits exactly in the storage space allocated.
+50% represents a collecion which takes up half the space and 0% represents a
+collection with no data in it.
+
+Any collections with a storage size less than `--efficiencty-size` will not be
+checked.
