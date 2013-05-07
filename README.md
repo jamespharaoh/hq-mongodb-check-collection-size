@@ -50,8 +50,10 @@ You will also need to provide various options for the script to work correctly.
     --breakdown
     --threads NUM
 
-If `--verbose` is specified, then details will be shown for collections which
-are within the limits, as well as those which exceed them.
+If `--verbose` is specified, then a detailed output is generated, showing which
+collections are over which limit. This should almost always be specified when
+running manually but would not be specified when used as a nagios or icinga
+plugin.
 
 The `--breakdown` option causes a separate line to be output for the data
 without any indexes, and each index in turn, in addition to the combined line
@@ -59,7 +61,7 @@ which is normally shown.
 
 The `--threads` option controls the number of worker threads the script uses.
 These are used to reduce the total runtime if the many database requests the
-script makes experience high latency. The default is 10 threads.
+script makes experience high latency. The default is 20 threads.
 
 ### Database connection
 
