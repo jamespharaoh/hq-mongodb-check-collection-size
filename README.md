@@ -63,5 +63,5 @@ allocated to it.
 50% represents a collecion which takes up half the space and 0% represents a
 collection with no data in it.
 
-Any collections with a storage size less than `--efficiencty-size` will not be
+Any collections with a storage size less than `--efficiency-size` will not be
 checked.
