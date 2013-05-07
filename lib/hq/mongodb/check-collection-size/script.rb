@@ -29,32 +29,25 @@ class Script < Tools::CheckScript
 					:convert => :to_i },
 
 				{ :name => :total_warning,
-					:convert => method(:decode_bytes),
-					:required => true },
+					:convert => method(:decode_bytes) },
 
 				{ :name => :total_critical,
-					:convert => method(:decode_bytes),
-					:required => true },
+					:convert => method(:decode_bytes) },
 
 				{ :name => :unsharded_warning,
-					:convert => method(:decode_bytes),
-					:required => true },
+					:convert => method(:decode_bytes) },
 
 				{ :name => :unsharded_critical,
-					:convert => method(:decode_bytes),
-					:required => true },
+					:convert => method(:decode_bytes) },
 
 				{ :name => :efficiency_warning,
-					:convert => :to_i,
-					:required => true },
+					:convert => :to_i },
 
 				{ :name => :efficiency_critical,
-					:convert => :to_i,
-					:required => true },
+					:convert => :to_i },
 
 				{ :name => :efficiency_size,
-					:convert => method(:decode_bytes),
-					:required => true },
+					:convert => method(:decode_bytes) },
 
 				{ :name => :verbose,
 					:boolean => true },
@@ -308,26 +301,49 @@ class Script < Tools::CheckScript
 		critical = false
 		warning = false
 
-		if total_data_size >= @opts[:total_critical]
+		if @opts[:total_critical] \
+			&& total_data_size >= @opts[:total_critical]
+
 			critical = true
-		elsif total_data_size >= @opts[:total_warning]
+
+		elsif @opts[:total_warning] \
+			&& total_data_size >= @opts[:total_warning]
+
 			warning = true
+
 		end
 
 		if sharding_enabled == false
-			if total_data_size >= @opts[:unsharded_critical]
+
+			if @opts[:unsharded_critical] \
+				&& total_data_size >= @opts[:unsharded_critical]
+
 				critical = true
-			elsif total_data_size >= @opts[:unsharded_warning]
+
+			elsif @opts[:unsharded_warning] \
+				&& total_data_size >= @opts[:unsharded_warning]
+
 				warning = true
+
 			end
+
 		end
 
-		if total_data_size >= @opts[:efficiency_size]
-			if total_efficiency < @opts[:efficiency_critical]
+		if @opts[:efficiency_size] \
+			&& total_data_size >= @opts[:efficiency_size]
+
+			if @opts[:efficiency_critical] \
+				&& total_efficiency < @opts[:efficiency_critical]
+
 				total_critical = true
-			elsif total_efficiency < @opts[:efficiency_warning]
+
+			elsif @opts[:efficiency_warning] \
+				&& total_efficiency < @opts[:efficiency_warning]
+
 				warning = true
+
 			end
+
 		end
 
 		# update counters
