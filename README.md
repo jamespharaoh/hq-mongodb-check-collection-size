@@ -8,7 +8,12 @@ utility from the command line.
 
 ## Usage
 
-The script should simply be run from the command line.
+If the gem is installed correctly, you should be able to run the command with
+the following name:
+
+    hq-mongodb-check-collection-size
+
+You will also need to provide various options for the script to work correctly.
 
 ### General options
 
