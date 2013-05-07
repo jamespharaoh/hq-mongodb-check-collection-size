@@ -1,17 +1,46 @@
 # HQ MongoDB check collection size
 
+https://github.com/jamespharaoh/hq-mongodb-check-collection-size
+
 This project provides a script to check that the size of your MongoDB
 collections doesn't exceed various types of limits.
 
 It is designed to be run either as a nagios or icinga plugin, or as a standalone
 utility from the command line.
 
+## Installation
+
+For most use cases, simply install the ruby gem:
+
+    gem install hq-mongodb-check-collection-size
+
+You can also install the gem as part of a bundle and run it using the "bundle
+exec" command.
+
+    mkdir my-bundle
+    cd my-bundle
+    echo 'source "https://rubygems.org"' >> Gemfile
+    echo 'gem "hq-mongodb-check-collection-size"' >> Gemfile
+    bundle install --path gems
+
+If you want to develop the script, clone the repository from github and use
+bundler to satisfy dependencies:
+
+    git clone git://github.com/jamespharaoh/hq-mongodb-check-collection-size.git
+    cd hq-mongodb-check-collection-size
+    bundle install --path gems
+
 ## Usage
 
 If the gem is installed correctly, you should be able to run the command with
 the following name:
 
-    hq-mongodb-check-collection-size
+    hq-mongodb-check-collection-size (options...)
+
+If it was installed via bundler, then you will want to use bundler to invoke the
+command correctly:
+
+    bundle exec hq-mongodb-check-collection-size (options...)
 
 You will also need to provide various options for the script to work correctly.
 
