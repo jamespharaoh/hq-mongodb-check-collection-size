@@ -101,3 +101,26 @@ collection with no data in it.
 
 Any collections with a storage size less than `--efficiency-size` will not be
 checked.
+
+## Output
+
+The script will produce output in the something like the following format:
+
+    events 809 megabytes 74% unsharded warning
+      data 676 megabytes 71%
+      _id_ 92.6 megabytes 85%
+      timestamp_1 40.5 megabytes 94%
+
+From the first line we can see the following information:
+
+* This section is about a collection named "events".
+* The total storage size for the collection is 809 megabytes. This includes the
+  data and all indexes.
+* The storage efficiency is 74%. This refers to the size of the data and indexes
+  divided by the total storage size.
+* This collection is unsharded.
+* This collection meets the criteria to emit a warning, but not a critical
+  error.
+
+The subsequent three lines provide a breakdown of the same collection but
+looking separately at the data itself, and at the two indexes which exist.
